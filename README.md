@@ -1,31 +1,43 @@
 # C-Minus Compiler
 
-An educational compiler implementation for the C-Minus programming language, developed as a Compiler Design course project.
+A one-pass compiler implementation for the C-Minus programming language, developed as a Compiler Design course project at Sharif University of Technology.
 
-The project implements the front-end phases of a compiler, including lexical analysis, LL(1) syntax parsing, parse tree generation, and syntax error detection.
+The compiler translates C-Minus source programs through the main compilation stages:
+- Lexical Analysis
+- Syntax Analysis
+- Semantic Analysis
+- Intermediate Code Generation
 
-## Features
+The implementation is developed in Python.
 
-### Lexical Analyzer (Scanner)
+---
 
-- Tokenizes source code into:
+## Overview
+
+This project implements a simplified compiler pipeline for the C-Minus language. 
+The compiler processes an input program in a single pass and generates intermediate three-address code as the final output.
+
+The compiler modules are integrated as a pipeline where each phase provides the required information for subsequent stages.
+
+---
+
+# Compiler Phases
+
+## 1. Lexical Analyzer (Scanner)
+
+The scanner reads the input source code character by character and converts it into a sequence of tokens.
+
+Implemented features:
+
+- Recognition of:
   - keywords
   - identifiers
   - numbers
   - symbols
-- Supports whitespace handling and comment processing.
+  - comments
 
-### LL(1) Parser
+- Symbol table construction
+- Line number tracking
+- Lexical error detection and recovery
 
-- Implements predictive parsing using:
-  - context-free grammar rules
-  - FIRST and FOLLOW sets
-  - LL(1) parse table construction
-- Generates a parse tree representation of the input program.
-
-### Error Detection and Recovery
-
-- Detects syntax errors during parsing.
-- Implements panic-mode error recovery to continue parsing after invalid input.
-
-## Project Structure
+Generated outputs:
